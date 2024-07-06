@@ -1,14 +1,39 @@
-import React from 'react'
-import Header from './components/Header/Header'
-import Banner from './components/home/Banner'
+/* eslint-disable no-unused-vars */
+import React from "react";
+import Header from "./components/Header/Header";
+import Footer from "./components/footer/Footer";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Route,
+  Outlet,
+} from "react-router-dom";
+import Home from "./pages/Home"
+
+const Layout = () => {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
 
 const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />}></Route>
+      </Route>
+    )
+  );
   return (
-    <div className='font-bodyFont'>
-      <Header/>
-      <Banner/>
+    <div className="font-bodyFont">
+      <RouterProvider router={router}></RouterProvider>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

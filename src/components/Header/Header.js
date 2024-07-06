@@ -12,7 +12,7 @@ const Header = () => {
   const [showAll, setShowAll] = useState(false);
   const allItems = [{}];
   return (
-    <div>
+    <div className="w-full sticky top-0 z-50">
       <div className="w-full bg-amazon_blue text-white px-4 py-3 flex items-center">
         <div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
           <img className="w-24 mt-2" src={logo} alt="logo" />
