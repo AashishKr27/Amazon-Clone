@@ -31,7 +31,7 @@ const App = () => {
     )
   );
   return (
-    <div className="font-bodyFont bg-gray-100">
+    <div className="font-bodyFont bg-gray-100 overflow-x-hidden">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

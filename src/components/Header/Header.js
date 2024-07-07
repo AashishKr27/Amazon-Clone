@@ -18,7 +18,7 @@ const Header = () => {
           <img className="w-24 mt-2" src={logo} alt="logo" />
         </div>
 
-        <div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
+        <div className="px-2 h-[80%] items-center border border-transparent hover:border-white cursor-pointer duration-100 hidden mdl:inline-flex">
           <LocationOnOutlinedIcon />
           <p className="text-sm text-lightText font-light flex flex-col">
             Deliver to
@@ -28,7 +28,7 @@ const Header = () => {
           </p>
         </div>
 
-        <div className="h-10 rounded-md flex flex-grow relative">
+        <div className="h-10 rounded-md hidden lgl:flex flex-grow relative">
           <span
             onClick={() => setShowAll(!showAll)}
             className="w-14 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md"
@@ -87,24 +87,29 @@ const Header = () => {
           </span>
         </div>
         <div className="px-2 h-[80%] flex flex-col justify-center border border-transparent hover:border-white cursor-pointer duration-100">
-          <p className="text-xs text-lightText font-light">Hello, Sign in</p>
-          <p className="text-sm font-semibold -mt-1 text-white">
+          <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">Hello, Sign in</p>
+          <p className="text-sm font-semibold -mt-1 text-white hidden mdl:inline-flex">
             Accounts & Lists{" "}
             <span>
               <ArrowDropDownOutlined />
             </span>
           </p>
         </div>
-        <div className="flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100">
-            <p className="text-xs text-lightText font-light">Returns</p>
-            <p className="text-sm font-semibold -mt-1 text-white">& Orders</p>
+        <div className="hidden lgl:flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100">
+          <p className="text-xs text-lightText font-light">Returns</p>
+          <p className="text-sm font-semibold -mt-1 text-white">& Orders</p>
         </div>
         <div className="flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100 relative">
-            <ShoppingCart />
-            <p className="text-xs text-lightText font-light">Cart <span className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">0</span></p>
+          <ShoppingCart />
+          <p className="text-xs text-lightText font-semibold">
+            Cart{" "}
+            <span className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
+              0
+            </span>
+          </p>
         </div>
       </div>
-      <HeaderBottom/>
+      <HeaderBottom />
     </div>
   );
 };
