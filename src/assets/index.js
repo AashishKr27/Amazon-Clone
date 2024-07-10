@@ -15,5 +15,5 @@ export {
   bannerImgFour,
   bannerImgFive,
   indFlag,
-  darkLogo
+  darkLogo,
 };

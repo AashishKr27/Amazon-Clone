@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home"
 import { productsData } from "./api/api";
+import SignIn from "./pages/SignIn"
 
 const Layout = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
+        <Route path="/signin" element={<SignIn />}></Route>
         <Route index element={<Home />} loader={productsData}></Route>
       </Route>
     )

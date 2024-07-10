@@ -7,6 +7,7 @@ import { ArrowDropDownOutlined } from "@mui/icons-material";
 import { Search } from "@mui/icons-material";
 import { ShoppingCart } from "@mui/icons-material";
 import HeaderBottom from "./HeaderBottom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [showAll, setShowAll] = useState(false);
@@ -86,6 +87,7 @@ const Header = () => {
             <Search />
           </span>
         </div>
+        <Link to="/signin">
         <div className="px-2 h-[80%] flex flex-col justify-center border border-transparent hover:border-white cursor-pointer duration-100">
           <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">Hello, Sign in</p>
           <p className="text-sm font-semibold -mt-1 text-white hidden mdl:inline-flex">
@@ -95,6 +97,7 @@ const Header = () => {
             </span>
           </p>
         </div>
+        </Link>
         <div className="hidden lgl:flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100">
           <p className="text-xs text-lightText font-light">Returns</p>
           <p className="text-sm font-semibold -mt-1 text-white">& Orders</p>
