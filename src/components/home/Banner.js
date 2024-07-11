@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-"use-client"
+"use-client";
 import React, { useState } from "react";
 import Slider from "react-slick";
 import {
@@ -11,16 +11,17 @@ import {
 } from "../../assets/index";
 
 const Banner = () => {
-    const [doActive, setDoActive] = useState(0)
+  const [doActive, setDoActive] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
+    autoplay: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    beforeChange :(prev, next) => {
-        setDoActive(next);
+    beforeChange: (prev, next) => {
+      setDoActive(next);
     },
     appendDots: (dots) => (
       <div
@@ -32,44 +33,49 @@ const Banner = () => {
           width: "210px",
         }}
       >
-        <ul style={{
+        <ul
+          style={{
             width: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-        }}> {dots} </ul>
+          }}
+        >
+          {dots}
+        </ul>
       </div>
     ),
     customPaging: (i) => (
       <div
         style={
-            i === doActive ? {
-          width: "30px",
-          height: "30px",
-          borderRadius: "50%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          background: "#131921",
-          padding: "8px 0",
-          cursor: "pointer",
-          border: "1px solid #f3a847",
+          i === doActive
+            ? {
+                width: "30px",
+                height: "30px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                background: "#131921",
+                padding: "8px 0",
+                cursor: "pointer",
+                border: "1px solid #f3a847",
+              }
+            : {
+                width: "30px",
+                height: "30px",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                background: "#232F3E",
+                padding: "8px 0",
+                cursor: "pointer",
+                border: "1px solid white",
+              }
         }
-        :{
-            width: "30px",
-          height: "30px",
-          borderRadius: "50%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          background: "#232F3E",
-          padding: "8px 0",
-          cursor: "pointer",
-          border: "1px solid white",
-        }
-    }
       >
         {i + 1}
       </div>
@@ -81,25 +87,25 @@ const Banner = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="w-full">
