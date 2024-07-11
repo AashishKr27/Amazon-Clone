@@ -8,16 +8,19 @@ import {
   RouterProvider,
   Route,
   Outlet,
+  ScrollRestoration,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import { productsData } from "./api/api";
 import SignIn from "./pages/SignIn";
 import Registration from "./pages/Registration";
+import Cart from "./pages/Cart";
 
 const Layout = () => {
   return (
     <div>
       <Header />
+      <ScrollRestoration />
       <Outlet />
       <Footer />
     </div>
@@ -30,6 +33,7 @@ const App = () => {
       <Route>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} loader={productsData}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
         </Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/registration" element={<Registration />}></Route>

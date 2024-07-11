@@ -8,16 +8,20 @@ import { Search } from "@mui/icons-material";
 import { ShoppingCart } from "@mui/icons-material";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [showAll, setShowAll] = useState(false);
   const allItems = [{}];
+  const products = useSelector((state) => state.amazonReducer.products);
   return (
     <div className="w-full sticky top-0 z-50">
       <div className="w-full bg-amazon_blue text-white px-4 py-3 flex items-center">
-        <div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
-          <img className="w-24 mt-2" src={logo} alt="logo" />
-        </div>
+        <Link to="/">
+          <div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
+            <img className="w-24 mt-2" src={logo} alt="logo" />
+          </div>
+        </Link>
 
         <div className="px-2 h-[80%] items-center border border-transparent hover:border-white cursor-pointer duration-100 hidden mdl:inline-flex">
           <LocationOnOutlinedIcon />
@@ -88,29 +92,33 @@ const Header = () => {
           </span>
         </div>
         <Link to="/signin">
-        <div className="px-2 h-[80%] flex flex-col justify-center border border-transparent hover:border-white cursor-pointer duration-100">
-          <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">Hello, Sign in</p>
-          <p className="text-sm font-semibold -mt-1 text-white hidden mdl:inline-flex">
-            Accounts & Lists{" "}
-            <span>
-              <ArrowDropDownOutlined />
-            </span>
-          </p>
-        </div>
+          <div className="px-2 h-[80%] flex flex-col justify-center border border-transparent hover:border-white cursor-pointer duration-100">
+            <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">
+              Hello, Sign in
+            </p>
+            <p className="text-sm font-semibold -mt-1 text-white hidden mdl:inline-flex">
+              Accounts & Lists{" "}
+              <span>
+                <ArrowDropDownOutlined />
+              </span>
+            </p>
+          </div>
         </Link>
         <div className="hidden lgl:flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100">
           <p className="text-xs text-lightText font-light">Returns</p>
           <p className="text-sm font-semibold -mt-1 text-white">& Orders</p>
         </div>
-        <div className="flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100 relative">
-          <ShoppingCart />
-          <p className="text-xs text-lightText font-semibold">
-            Cart{" "}
-            <span className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
-              0
-            </span>
-          </p>
-        </div>
+        <Link to="/cart">
+          <div className="flex flex-col items-start justify-center px-2 h-[80%] border border-transparent hover:border-white cursor-pointer duration-100 relative">
+            <ShoppingCart />
+            <p className="text-xs text-lightText font-semibold">
+              Cart{" "}
+              <span className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
+                {products.length}
+              </span>
+            </p>
+          </div>
+        </Link>
       </div>
       <HeaderBottom />
     </div>
